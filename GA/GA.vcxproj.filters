@@ -24,12 +24,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Chromosome.h">
-      <Filter>Header Files\GeneticAlgorithm</Filter>
-    </ClInclude>
-    <ClInclude Include="Genome.h">
-      <Filter>Header Files\GeneticAlgorithm</Filter>
-    </ClInclude>
     <ClInclude Include="Population.h">
       <Filter>Header Files\GeneticAlgorithm</Filter>
     </ClInclude>
