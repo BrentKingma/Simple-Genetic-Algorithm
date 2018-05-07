@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\kingm\documents\ga\ga\ga\</FILEPATH>
+      <FILENAME>population.h</FILENAME>
+      <LINE>84</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '49' of 'c:\users\kingm\documents\ga\ga\ga\population.h'.</DESCRIPTION>
+    <FUNCTION>Population&lt;char&gt;::SelectionAndBreeding</FUNCTION>
+    <DECORATED>?SelectionAndBreeding@?$Population@D@@QAEXW4SelectionMethod@@@Z</DECORATED>
+    <FUNCLINE>47</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\kingm\documents\ga\ga\ga\</FILEPATH>
+        <FILENAME>population.h</FILENAME>
+        <LINE>49</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\kingm\documents\ga\ga\ga\</FILEPATH>
+      <FILENAME>population.h</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '49' of 'c:\users\kingm\documents\ga\ga\ga\population.h'.</DESCRIPTION>
+    <FUNCTION>Population&lt;char&gt;::SelectionAndBreeding</FUNCTION>
+    <DECORATED>?SelectionAndBreeding@?$Population@D@@QAEXW4SelectionMethod@@@Z</DECORATED>
+    <FUNCLINE>47</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\kingm\documents\ga\ga\ga\</FILEPATH>
+        <FILENAME>population.h</FILENAME>
+        <LINE>49</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\kingm\documents\ga\ga\ga\</FILEPATH>
+      <FILENAME>population.h</FILENAME>
+      <LINE>97</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '49' of 'c:\users\kingm\documents\ga\ga\ga\population.h'.</DESCRIPTION>
+    <FUNCTION>Population&lt;char&gt;::SelectionAndBreeding</FUNCTION>
+    <DECORATED>?SelectionAndBreeding@?$Population@D@@QAEXW4SelectionMethod@@@Z</DECORATED>
+    <FUNCLINE>47</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\kingm\documents\ga\ga\ga\</FILEPATH>
+        <FILENAME>population.h</FILENAME>
+        <LINE>49</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\kingm\documents\ga\ga\ga\</FILEPATH>
+      <FILENAME>population.h</FILENAME>
+      <LINE>102</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>6246</DEFECTCODE>
+    <DESCRIPTION>Local declaration of 'i' hides declaration of the same name in outer scope. For additional information, see previous declaration at line '49' of 'c:\users\kingm\documents\ga\ga\ga\population.h'.</DESCRIPTION>
+    <FUNCTION>Population&lt;char&gt;::SelectionAndBreeding</FUNCTION>
+    <DECORATED>?SelectionAndBreeding@?$Population@D@@QAEXW4SelectionMethod@@@Z</DECORATED>
+    <FUNCLINE>47</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\kingm\documents\ga\ga\ga\</FILEPATH>
+        <FILENAME>population.h</FILENAME>
+        <LINE>49</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>
