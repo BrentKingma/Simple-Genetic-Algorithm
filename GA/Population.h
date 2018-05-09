@@ -15,12 +15,16 @@ enum class SelectionMethod
 };
 
 template<typename GeneType>
+struct Genome;
+
+template<typename GeneType>
 struct Chromosome
 {
 public:
 	Chromosome() {};
-	Chromosome(int a_numGenes, std::function<GeneType()> a_geneFunc)
+	Chromosome(int a_numGenes, std::function<GeneType()> a_geneFunc, Genome<GeneType>* a_parent)
 	{
+		m_parent = a_parent;
 		m_genes.reserve(a_numGenes);
 		for (int i = 0; i < a_numGenes; i++)
 		{
@@ -40,12 +44,19 @@ public:
 	void setGenes(std::vector<GeneType> a_newGenes) { m_genes = a_newGenes; }
 	void setGene(int a_pos, GeneType a_newGene) { m_genes[a_pos] = a_newGene; }
 	void AddGene(GeneType a_gene) { m_genes.push_back(a_gene); }
+	void AddGene(GeneType a_gene, int a_pos) { m_genes[a_pos] = a_gene; }
+	void AddGene(int a_pos) { m_genes[pos] = m_defaultValue; }
+	void AddGene() { m_genes.push_back(m_defaultValue); }
+	void RemoveGene() { if(m_genes.size() > 0) m_genes.pop_back(); }
 	void Mutate(std::function<void(Chromosome<GeneType>&)> a_function)
 	{
 		a_function(*this);
 	}
+	Genome<GeneType>*	m_parent;
+	void setDefaultValue(GeneType v) { m_defaultValue = v; }
 private:
-	std::vector<GeneType> m_genes;
+	std::vector<GeneType> m_genes;	
+	GeneType m_defaultValue = 'm';
 };
 
 template<typename GeneType>
@@ -61,7 +72,7 @@ public:
 		m_chromosomes.reserve(a_numChromosomes);
 		for (int i = 0; i < a_numChromosomes; i++)
 		{
-			m_chromosomes.push_back(Chromosome<GeneType>(a_numGenes, a_geneFunc));
+			m_chromosomes.push_back(Chromosome<GeneType>(a_numGenes, a_geneFunc, this));
 		}
 	};
 	~Genome() {};
@@ -71,7 +82,10 @@ public:
 
 	void AddChromosome(Chromosome<GeneType>& a_chromosome) { m_chromosomes.push_back(a_chromosome); }
 	void setFitness(float a_fitness) { m_fitness = a_fitness; }
-	float GetFitness() const { return m_fitness; }
+	float GetFitness() const
+	{ 
+		return m_fitness;
+	}
 private:
 	std::vector<Chromosome<GeneType>>	m_chromosomes;
 	bool								m_hasBeenSorted = false;
@@ -86,7 +100,7 @@ public:
 	Population() {};
 	Population(int a_numGenomes, int a_numChromosomes, int a_numGenes, std::function<GeneType()> a_geneFunc)
 	{
-		srand((unsigned int)time(NULL));
+		
 
 		m_numOfGenes = a_numGenes;
 		m_numOfGenomes = a_numGenomes;
@@ -151,38 +165,15 @@ public:
 					Genome<GeneType> parent1 = Genome<GeneType>();
 					Genome<GeneType> parent2 = Genome<GeneType>();
 
-					int numToSelect = m_genomes.size() * 0.05;
-					m_genomesForTournament.reserve(numToSelect);
-					m_genomesForTournament.resize(numToSelect);
-					
-					//Gets the first parent from the selected genomes
-					for (size_t i = 0; i < numToSelect; i++)
-					{
-						int num = rand() % m_numOfGenomes;
-						m_genomesForTournament[i] = m_genomes[num];
-					}					
-					parent1 = m_genomesForTournament[0];
-					for (size_t i = 1; i < numToSelect; i++)
-					{
-						if (m_genomesForTournament[i].GetFitness() > parent1.GetFitness())
-						{
-							parent1 = m_genomesForTournament[i];
-						}
-					}
-					//Gets the second parent from the selected genomes
-					for (size_t i = 0; i < numToSelect; i++)
-					{
-						int num = rand() % m_numOfGenomes;
-						m_genomesForTournament[i] = m_genomes[num];
-					}					
-					parent2 = m_genomesForTournament[0];
-					for (size_t i = 1; i < numToSelect; i++)
-					{
-						if (m_genomesForTournament[i].GetFitness() > parent2.GetFitness())
-						{
-							parent2 = m_genomesForTournament[i];
-						}
-					}
+					int parent1Choice1 = rand() % (int)(m_genomes.size() * 0.05f);
+					int parent1Choice2 = rand() % (int)(m_genomes.size() * 0.05f);
+
+					parent1 = (m_genomes[parent1Choice1].GetFitness() > m_genomes[parent1Choice2].GetFitness()) ? m_genomes[parent1Choice1] : m_genomes[parent1Choice2];
+
+					int parent2Choice1 = rand() % (int)(m_genomes.size() * 0.05f);
+					int parent2Choice2 = rand() % (int)(m_genomes.size() * 0.05f);
+
+					parent2 = (m_genomes[parent2Choice1].GetFitness() > m_genomes[parent2Choice2].GetFitness()) ? m_genomes[parent2Choice1] : m_genomes[parent2Choice2];
 
 					Crossover(parent1, parent2, temp);
 				}
